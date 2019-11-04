@@ -4,7 +4,8 @@
   "description": "This is  a supply chain app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "docs":"apidoc -i routes/ -o apidoc"
   },
   "author": "",
   "license": "ISC",
