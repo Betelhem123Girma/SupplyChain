@@ -529,6 +529,69 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "remotecreateAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"first_name\":\"mulu\",\n\"last_name\":\"belete\",\n\"email\":\"mulu@gmail.com\",\n\"password\":\"mulu\"\n}"
+				},
+				"url": {
+					"raw": "http://supplychain-api.herokuapp.com/customer/createAccount",
+					"protocol": "http",
+					"host": [
+						"supplychain-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"customer",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remotelogin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"mulu@gmail.com\",\n\"password\":\"mulu\"\n}"
+				},
+				"url": {
+					"raw": "http://supplychain-api.herokuapp.com/login",
+					"protocol": "http",
+					"host": [
+						"supplychain-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

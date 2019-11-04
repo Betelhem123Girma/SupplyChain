@@ -73,16 +73,16 @@ exports.findById=query=>Customer.findById(query);
 exports.find = query => Customer.find(query).exec();
 exports.findOne = query => Customer.findOne(query).exec();
 exports.search = function search(options, cb){
-  console.log('Searching a collection of foodItems');
+  console.log('Searching a collection of Customers');
 
  Customer.find(options.filter, options.fields) 
       .sort(options.sort)
       .limit(options.limit)
       .skip(options.limit * (options.page - 1))
-      .exec(function searchfoodItem(err, foods) {
+      .exec(function searchCustomer(err, customers) {
           if(err) {
               return cb(err);
           }
-          return cb(null, foods);
+          return cb(null, customers);
       })
 }

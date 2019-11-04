@@ -105,6 +105,48 @@ exports.login = (req, res) => {
       })
       .catch(reject => result.errorReject(reject, res));
 };
+// exports.login = (req, res) => {
+//   let email, password, user;
+//   validator.hasLoginFields(req)
+//       .then(body => {
+//           email = body.email;
+//           password = body.password;
+//           return customerDal.findOne({email});
+//       })
+//       .then(found => {
+//           if (!found) {
+//               return Promise.reject(
+//                   result.reject(`Invalid username or password`)
+//               );
+//           } else {
+//               user = found;
+//               return bcrypt.compare(password, user.password);
+//           }
+//       })
+//       .then(valid => {
+//           if (valid) {
+//             const token = jwt.sign(
+//                     {
+//                       email: user.email,
+//                       userId: user._id
+//                     },
+//                     config.JWT_KEY,
+//                     {
+//                       expiresIn: "1h"
+//                     }
+//                   );
+//                   return token
+//           } else {
+//               return Promise.reject(
+//                   result.reject(`Invalid username or password`)
+//               );
+//           }
+//       })
+//       .then(token => {
+//           result.data({token, user}, res);
+//       })
+//       .catch(reject => result.errorReject(reject, res));
+// };
 
 //search for customers
 exports.searchCustomer=(req, res, next)=> {

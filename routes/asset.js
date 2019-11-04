@@ -34,4 +34,14 @@ router.patch('/update/:assetId',checkAuth,assetController.updateAsset)
  * @apiVersion 0.0.1*/
 
 router.delete('/delete/:assetId',checkAuth,assetController.deleteAsset)
+/**
+ * @api {get} costumer/search/ search asset
+ * @apiName SearchAsset
+ * @apiGroup User
+ *
+ * 
+ *
+ 
+ */
+router.get('/search',checkAuth,assetController.searchAsset)
 module.exports=router
