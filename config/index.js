@@ -2,7 +2,8 @@ module.exports = {
     // HTTP PORT
     HTTP_PORT: process.env.PORT || 3000,
     // MongoDB URL
-    MONGODB_URL:"mongodb://localhost/supplyChain",
+    MONGODB_URL:"mongodb+srv://user:root@cluster0-lemlt.mongodb.net/test?retryWrites=true&w=majority",
+    // mongodb://localhost/supplyChain",
     //"mongodb+srv://user:root@cluster0-wijwl.mongodb.net/test?retryWrites=true&w=majority",mongodb+srv://admin:bety1997@cluster0-odwq2.mongodb.net/test?retryWrites=true&w=majority
     
     // Maximum Page Size 
