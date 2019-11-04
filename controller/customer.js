@@ -7,6 +7,7 @@ const searchOptions = require('../lib/search_options');
 var defaultFields = ['email', 'asset'];
 // Get User DAL
 const customerDal = require('../dal/customer');
+const customer=require('../model/customer')
 const helper=require('../util/helper')
 // Get Config file
 const config = require('../config');
@@ -62,7 +63,6 @@ exports.createAccount = function createAccount(req, res, next) {
 
   workflow.emit('validateData');
 };
-
 exports.login = (req, res) => {
   let email, password, user;
   validator.hasLoginFields(req)
@@ -105,6 +105,7 @@ exports.login = (req, res) => {
       })
       .catch(reject => result.errorReject(reject, res));
 };
+
 //search for customers
 exports.searchCustomer=(req, res, next)=> {
   var workflow = new events.EventEmitter();
@@ -168,3 +169,46 @@ exports.searchCustomer=(req, res, next)=> {
 
   workflow.emit('validateSearchQuery');
 };
+//deleting 
+exports.deleteCustomer=(req,res)=>{
+  customerDal.findById({_id:req.params.customerId})
+  .then(found=>{
+      if(!found){
+          res.json({
+              message:"customer doesnt exist"
+          })
+      }
+      else{
+          customerDal.deleteCustomer({_id:req.params.customerId})
+          res.json({
+              message:"customer have been deleted successfully"
+          })
+      }
+  })
+}
+
+    //update
+  exports.updateCustomerInfo=(req,res)=>{
+
+      customer.findByIdAndUpdate(req.params.customerId, {$set: req.body}, function (err, customer) {
+          if (err) return next(err);
+          res.send('Customer info udpated.');
+        
+      });
+  
+      
+    };
+exports.getUsers=(req,res)=>{
+  customer.find()
+  .then(found=>{
+    if(!found){
+      res.json({
+        message:"no customers"
+      })
+    }
+    else{
+      user=found
+      res.json(user)
+    }
+  })
+}

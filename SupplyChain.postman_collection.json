@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "223969b6-b55c-4be4-8970-cee11a87e998",
+		"name": "SupplyChain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"first_name\":\"bety\",\n\"last_name\":\"girma\",\n\"email\":\"bety@gmail.com\",\n\"password\":\"bety\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/createAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"email\":\"bety@gmail.com\",\n\"password\":\"bety\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAsset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"asset_type\":\"machines\",\n\"customer\":\"5dc0185b7666db3b88e46d2a\",\n\"price\":\"1000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/asset/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asset",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAsset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODcwNTAzLCJleHAiOjE1NzI4NzQxMDN9.m-THI2nnmZtQoDm4dFYmchJHdsqfRQfMk0jlwlb8bDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/asset/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asset",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editAsset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODcwNTAzLCJleHAiOjE1NzI4NzQxMDN9.m-THI2nnmZtQoDm4dFYmchJHdsqfRQfMk0jlwlb8bDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"asset_type\":\"Factory Supply\",\n\"customer\":\"5dc0185b7666db3b88e46d2a\",\n\"price\":\"10000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/asset/update/5dc019ee7666db3b88e46d2d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asset",
+						"update",
+						"5dc019ee7666db3b88e46d2d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAsset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODcwNTAzLCJleHAiOjE1NzI4NzQxMDN9.m-THI2nnmZtQoDm4dFYmchJHdsqfRQfMk0jlwlb8bDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/asset/delete/5dc019ee7666db3b88e46d2d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"asset",
+						"delete",
+						"5dc019ee7666db3b88e46d2d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTruck",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"truck_plate\":\"HJ90809\",\n\t\"asset\":\"5dc025f680e2c92dfc290062\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/truck/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"truck",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTruck",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"truck_plate\":\"HJ90809\",\n\t\"asset\":\"5dc025f680e2c92dfc290062\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/truck/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"truck",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTruckInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"truck_plate\":\"HJ8000\",\n\t\"asset\":\"5dc025f680e2c92dfc290062\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/truck/update/5dc028724a309a30ccad4518",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"truck",
+						"update",
+						"5dc028724a309a30ccad4518"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTruck",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"truck_plate\":\"HJ8000\",\n\t\"asset\":\"5dc025f680e2c92dfc290062\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/truck/delete/5dc028724a309a30ccad4518",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"truck",
+						"delete",
+						"5dc028724a309a30ccad4518"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchCustomer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJldHlAZ21haWwuY29tIiwidXNlcklkIjoiNWRjMDE4NWI3NjY2ZGIzYjg4ZTQ2ZDJhIiwiaWF0IjoxNTcyODczNjgzLCJleHAiOjE1NzI4NzcyODN9.MdXa6Ej6348O93GNS9dHnb510R2gvrbechgSx29SMdU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"bety@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCustomerInfo",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"email\":\"betz@gmail.com\",\n\"password\":\"bety\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/update/5dc0185b7666db3b88e46d2a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"update",
+						"5dc0185b7666db3b88e46d2a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allCustomers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCustomer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"email\":\"mahi@gmail.com\",\n\"password\":\"mahi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/customer/delete/5dc03ad66d73f83c0886e73b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"delete",
+						"5dc03ad66d73f83c0886e73b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

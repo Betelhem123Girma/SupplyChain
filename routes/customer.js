@@ -2,12 +2,12 @@ const express = require('express');
 
 // Get Users controller
 const customerController = require('../controller/customer');
-
+const checkAuth=require('../lib/check_auth')
 // Create a router
 const router = express.Router();
 
 /**
- * @api {user} /users/  Create User
+ * @api {post} /users/createAccount  Create User
  * @apiName CreateUser
  * @apiGroup User
  * @apiVersion 0.0.1
@@ -41,7 +41,7 @@ const router = express.Router();
 router.post('/createAccount', customerController.createAccount);
 
 /**
- * @api {user} /users/  Login User
+ * @api {user} /users/login  Login User
  * @apiName LoginUser
  * @apiGroup User
  * @apiVersion 0.0.1
@@ -67,7 +67,44 @@ router.post('/createAccount', customerController.createAccount);
  *
  */
 router.post('/login', customerController.login);
+/**
+ * @api {get} costumer/search/ search user
+ * @apiName SearchUser
+ * @apiGroup User
+ *
+ * @apiParam {name} name of user
+ *
+ 
+ */
 router.get('/search',customerController.searchCustomer)
+/**
+ * @api {delete} constumer/search/:id delete user
+ * @apiName DeleteUser
+ * @apiGroup User
+ *
 
+ */
+router.delete('/delete/:customerId',customerController.deleteCustomer)
+/**
+ * @api {get} costumer/delete/:id update User information
+ * @apiName DeleteUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ 
+ */
+router.patch('/update/:customerId',customerController.updateCustomerInfo)
+/**
+ * @api {get} /customer/ all user
+ * @apiName GetUser
+ * @apiGroup User
+ *
+
+ *
+ * @apiSuccess {Array} customer
+ 
+ */
+router.get('/',customerController.getUsers)
 
 module.exports = router;

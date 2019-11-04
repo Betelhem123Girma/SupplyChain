@@ -13,7 +13,7 @@ const config = require('./config');
 const router = require('./routes');
 
 // Connect to MongoDB
-mongoose.connect(config.MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true});
+mongoose.connect(config.MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify:false});
 
 // Listen to connection event
 mongoose.connection.on('connected', function mongoListener(err) {

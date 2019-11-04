@@ -64,6 +64,11 @@ exports.get = function get(query, cb) {
     cb(null, Customer || {});
   });
 };
+exports.updateCustomerInfo=(Customer,data)=>{
+  Object.assign(data)
+  return Customer.save(data)
+}
+exports.deleteCustomer=query=>Customer.deleteMany(query).exec()
 exports.findById=query=>Customer.findById(query);
 exports.find = query => Customer.find(query).exec();
 exports.findOne = query => Customer.findOne(query).exec();
